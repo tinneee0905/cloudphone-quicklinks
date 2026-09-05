@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 16px;
+            background-color: #24082c;
+        }
+        .search-box {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        .app-card {
+            background: white;
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.1s;
+            border: 1px solid #eee;
+        }
+        .app-card:active {
+            transform: scale(0.95);
+            background-color: #f0f0f0;
+        }
+        .app-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        .app-name {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .title-name {
+            color: #f0f0f0;
+            font-size: 30px;
+
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title-name">CloudPhone Quicklinks</h1>
+    <input type="text" id="search" class="search-box" placeholder="Search websites...">
+
+    <div class="grid" id="linksContainer">
+        <!-- target="_blank" forces the CloudPhone browser to handle the link cleanly -->
+
+        <!-- Container for Entertainment-->
+        <a href="entertainment.html" target="_blank" rel="noopener" class="app-card">
+            <div class="app-icon">
+             <img src="play.png">  
+            </div>
+            <div class="app-name">Entertainment</div>
+
+        </a>
+
+
+        <!-- Container for Social Media Apps-->
+        <!-- YT MUSIC-->
+         <a href="socmed.html" target="_blank" rel="noopener" class="app-card">
+            <div class="app-icon">
+             <img src="play.png">  
+            </div>
+            <div class="app-name">Social Media</div>
+
+        </a>
+
+
+        <!-- Container for Games-->
+
+        <a href="games.html" target="_blank" rel="noopener" class="app-card">
+            <div class="app-icon">
+             <img src="play.png">  
+            </div>
+            <div class="app-name">Games</div>
+
+        </a>
+
+        <!-- Container for AI Tools-->
+        <a href="AI.html" target="_blank" rel="noopener" class="app-card">
+            <div class="app-icon">
+             <img src="play.png">  
+            </div>
+            <div class="app-name">AI Tools</div>
+
+        </a>
+
+
+
+       
+    </div>
+
+    <script>
+        // Simple search filter function
+        document.getElementById('search').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.app-card');
+            
+            cards.forEach(card => {
+                const name = card.querySelector('.app-name').textContent.toLowerCase();
+                if (name.includes(term)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
